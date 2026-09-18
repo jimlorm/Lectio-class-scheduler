@@ -10,6 +10,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [notice, setNotice] = useState("");
 
+  // search functionality
   const filteredCourses = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
@@ -25,11 +26,13 @@ function App() {
     );
   }, [searchQuery]);
 
+  // summing up units
   const totalUnits = selectedSections.reduce(
     (total, section) => total + section.course.units,
     0
   );
 
+  // notice pop up function
   function showNotice(message) {
     setNotice(message);
 
@@ -39,6 +42,8 @@ function App() {
     }, 3500);
   }
 
+
+  // add section functionality
   function addSection(course, section) {
     const existingForCourse = selectedSections.find(
       (selected) => selected.course.id === course.id
@@ -78,6 +83,7 @@ function App() {
     showNotice(`${course.code} ${section.section} added to your schedule.`);
   }
 
+  // removing section
   function removeSection(sectionId) {
     const removed = selectedSections.find(
       (section) => section.id === sectionId
@@ -92,6 +98,7 @@ function App() {
     }
   }
 
+  // clearing schedule
   function clearSchedule() {
     setSelectedSections([]);
     showNotice("Your schedule was cleared.");
@@ -156,7 +163,6 @@ function App() {
                 </button>
               )}
             </div>
-            {/* Filter button was completely removed from here */}
           </div>
 
           <CourseList
