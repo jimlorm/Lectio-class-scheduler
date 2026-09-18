@@ -2,6 +2,7 @@
 
 A React class scheduling application for browsing courses, selecting sections, and building a weekly schedule.
 
+**Live Demo:** [https://lectio-virid-seven.vercel.app/](https://lectio-virid-seven.vercel.app/)
 ![alt text](image.png)
 ## Features
 
