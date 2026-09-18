@@ -166,9 +166,8 @@ input:focus-visible {
 .search-box > span {
   margin-left: 17px;
   color: #5e5967;
-  font-size: 25px;
-  line-height: 0;
-  transform: rotate(-20deg);
+  display: flex;
+  align-items: center;
 }
 
 .search-box input {
@@ -185,22 +184,11 @@ input:focus-visible {
   color: #9993a4;
 }
 
-.clear-button {
-  position: absolute;
-  right: 8px;
-  border: 0;
-  background: transparent;
-  color: #77717e;
-  font-size: 22px;
-}
-
-.filter-button {
-  width: 54px;
-  border: 1px solid #cbc7d0;
-  border-radius: 10px;
-  background: white;
-  color: #4f4a58;
-  font-size: 24px;
+.clear-button,
+.chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Course cards */
@@ -374,8 +362,9 @@ input:focus-visible {
 }
 
 .empty-symbol {
-  font-size: 32px;
   color: #77717f;
+  display: flex;
+  justify-content: center;
 }
 
 /* Schedule */
@@ -531,7 +520,8 @@ input:focus-visible {
 .calendar-icon {
   margin-bottom: 14px;
   color: #918b9b;
-  font-size: 38px;
+  display: flex;
+  justify-content: center;
 }
 
 .empty-schedule h3 {
@@ -592,7 +582,8 @@ input:focus-visible {
 .list-icon {
   margin-bottom: 8px;
   color: #99939f;
-  font-size: 32px;
+  display: flex;
+  justify-content: center;
 }
 
 .selected-empty strong {
