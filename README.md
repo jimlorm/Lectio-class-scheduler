@@ -2,6 +2,7 @@
 
 A React class scheduling application for browsing courses, selecting sections, and building a weekly schedule.
 
+![alt text](image.png)
 ## Features
 
 - Browse courses and sections
