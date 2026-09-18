@@ -44,12 +44,10 @@ function App() {
       (selected) => selected.course.id === course.id
     );
 
-    // clicking the currently selected section does nothing
     if (existingForCourse?.id === section.id) {
       return;
     }
 
-    // if the course already has a section, replace it
     if (existingForCourse) {
       setSelectedSections((current) =>
         current.map((selected) =>
@@ -65,7 +63,6 @@ function App() {
       return;
     }
 
-    // max units restriction
     if (totalUnits + course.units > MAX_UNITS) {
       showNotice(
         `You cannot add ${course.code}. Your maximum is ${MAX_UNITS} units.`
@@ -110,7 +107,7 @@ function App() {
         <div className="topbar-right">
           <span className="tagline">Plan wisely. Study freely.</span>
           <div className="profile-circle" aria-label="Profile">
-            ●
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
           </div>
         </div>
       </header>
@@ -118,7 +115,9 @@ function App() {
       {notice && (
         <div className="notice" role="status">
           <span>{notice}</span>
-          <button onClick={() => setNotice("")}>×</button>
+          <button onClick={() => setNotice("")} aria-label="Close notice">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
         </div>
       )}
 
@@ -137,7 +136,9 @@ function App() {
 
           <div className="search-row">
             <div className="search-box">
-              <span>⌕</span>
+              <span className="search-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
               <input
                 type="search"
                 placeholder="Search by course code or title..."
@@ -151,14 +152,11 @@ function App() {
                   onClick={() => setSearchQuery("")}
                   aria-label="Clear search"
                 >
-                  ×
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
               )}
             </div>
-
-            <button className="filter-button" aria-label="Filters">
-              ☷
-            </button>
+            {/* Filter button was completely removed from here */}
           </div>
 
           <CourseList
